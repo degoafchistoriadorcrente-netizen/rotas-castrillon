@@ -1,5 +1,4 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0b5cff"><link rel="manifest" href="manifest.json"><title>Rotas Castrillon</title><style>*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:#f3f5f8;color:#172033}header{background:#0b5cff;color:#fff;padding:18px 16px;position:sticky;top:0;z-index:5;box-shadow:0 2px 10px #0002}h1{font-size:23px;margin:0 0 4px}header p{margin:0;opacity:.9;font-size:13px}.tools{padding:12px;position:sticky;top:85px;background:#f3f5f8;z-index:4}.search{width:100%;padding:14px;border:1px solid #ccd3df;border-radius:12px;font-size:16px}.regions{display:flex;gap:7px;overflow:auto;padding:9px 0}.regions button{white-space:nowrap;border:0;border-radius:20px;padding:9px 13px;background:#fff;color:#234;font-weight:600}.regions button.active{background:#0b5cff;color:#fff}.route{margin:12px;background:#fff;border-radius:16px;padding:14px;box-shadow:0 2px 8px #00000012}.route h2{font-size:17px;margin:0 0 10px}.badge{font-size:12px;color:#5d6879;margin-bottom:10px}.address{font-size:14px;line-height:1.35;color:#384457;margin-bottom:12px}.map{display:block;text-align:center;text-decoration:none;background:#0b5cff;color:#fff;font-weight:800;font-size:17px;padding:15px 10px;border-radius:12px}.phone{display:block;text-align:center;margin-top:8px;padding:10px;border:1px solid #d8dee8;border-radius:10px;text-decoration:none;color:#174ea6;font-weight:700}.count{text-align:center;font-size:13px;color:#657084;padding:5px 0 15px}footer{text-align:center;padding:20px;color:#7b8492;font-size:12px}.add{display:block;width:calc(100% - 24px);margin:12px;padding:14px;border:0;border-radius:12px;background:#198754;color:#fff;font-weight:800;font-size:16px}.form{display:none;margin:12px;background:#fff;border-radius:16px;padding:14px;box-shadow:0 2px 8px #00000012}.form.show{display:block}.form input,.form select{width:100%;padding:12px;margin:6px 0;border:1px solid #ccd3df;border-radius:10px;font-size:15px}.form button{padding:12px 14px;border:0;border-radius:10px;font-weight:800;margin:4px 3px 0 0}.save{background:#198754;color:#fff}.cancel{background:#e9edf3;color:#243}.custom{border-left:4px solid #198754}.manage{display:flex;gap:7px;margin-top:8px}.manage button{flex:1;padding:10px;border-radius:10px;border:1px solid #d8dee8;background:#fff;font-weight:700}.edit{color:#174ea6}.del{color:#b42318}</style></head><body><header><h1>🚗 Rotas Castrillon</h1><p>Entregas de autopeças • Porangatu-GO</p></header><div class="tools"><input id="q" class="search" placeholder="🔎 Buscar oficina..."><div id="regions" class="regions"></div></div><button class="add" id="addBtn">➕ ADICIONAR LOCAL</button><div id="form" class="form"><h2 style="margin:0 0 8px">Novo local</h2><input id="newName" placeholder="Nome da oficina / local"><select id="newRegion"></select><input id="newAddress" placeholder="Endereço completo"><input id="newPhone" placeholder="Telefone (opcional)" type="tel"><button class="save" id="saveBtn">💾 SALVAR LOCAL</button><button class="cancel" id="cancelBtn">CANCELAR</button></div><div id="app"></div><footer>Origem: Castrillon Autopeças • Toque em “IR PARA A OFICINA”.</footer><script>
-const O="R. 01, lotes 11/12, Setor Bom Jesus, Porangatu - GO, 76550-000, Brasil";
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0b5cff"><link rel="manifest" href="manifest.json"><title>Rotas Castrillon</title><style>*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:#f3f5f8;color:#172033}header{background:#0b5cff;color:#fff;padding:18px 16px;position:sticky;top:0;z-index:5;box-shadow:0 2px 10px #0002}h1{font-size:23px;margin:0 0 4px}header p{margin:0;opacity:.9;font-size:13px}.tools{padding:12px;position:sticky;top:85px;background:#f3f5f8;z-index:4}.search{width:100%;padding:14px;border:1px solid #ccd3df;border-radius:12px;font-size:16px}.regions{display:flex;gap:7px;overflow:auto;padding:9px 0}.regions button{white-space:nowrap;border:0;border-radius:20px;padding:9px 13px;background:#fff;color:#234;font-weight:600}.regions button.active{background:#0b5cff;color:#fff}.route{margin:12px;background:#fff;border-radius:16px;padding:14px;box-shadow:0 2px 8px #00000012}.route h2{font-size:17px;margin:0 0 10px}.badge{font-size:12px;color:#5d6879;margin-bottom:10px}.address{font-size:14px;line-height:1.35;color:#384457;margin-bottom:12px}.map{display:block;text-align:center;text-decoration:none;background:#0b5cff;color:#fff;font-weight:800;font-size:17px;padding:15px 10px;border-radius:12px}.phone{display:block;text-align:center;margin-top:8px;padding:10px;border:1px solid #d8dee8;border-radius:10px;text-decoration:none;color:#174ea6;font-weight:700}.count{text-align:center;font-size:13px;color:#657084;padding:5px 0 15px}footer{text-align:center;padding:20px;color:#7b8492;font-size:12px}.add{display:block;width:calc(100% - 24px);margin:12px;padding:14px;border:0;border-radius:12px;background:#198754;color:#fff;font-weight:800;font-size:16px}.form{display:none;margin:12px;background:#fff;border-radius:16px;padding:14px;box-shadow:0 2px 8px #00000012}.form.show{display:block}.form input,.form select{width:100%;padding:12px;margin:6px 0;border:1px solid #ccd3df;border-radius:10px;font-size:15px}.form button{padding:12px 14px;border:0;border-radius:10px;font-weight:800;margin:4px 3px 0 0}.save{background:#198754;color:#fff}.cancel{background:#e9edf3;color:#243}.custom{border-left:4px solid #198754}.manage{display:flex;gap:7px;margin-top:8px}.manage button{flex:1;padding:10px;border-radius:10px;border:1px solid #d8dee8;background:#fff;font-weight:700}.edit{color:#174ea6}.del{color:#b42318}</style></head><body><header><h1>🚗 Rotas Castrillon</h1><p>Entregas de autopeças • Porangatu-GO</p></header><div class="tools"><input id="q" class="search" placeholder="🔎 Buscar oficina..."><div id="regions" class="regions"></div></div><button class="add" id="addBtn">➕ ADICIONAR LOCAL</button><div id="form" class="form"><h2 style="margin:0 0 8px">Novo local</h2><input id="newName" placeholder="Nome da oficina / local"><select id="newRegion"></select><input id="newAddress" placeholder="Endereço completo"><input id="newPhone" placeholder="Telefone (opcional)" type="tel"><button class="save" id="saveBtn">💾 SALVAR LOCAL</button><button class="cancel" id="cancelBtn">CANCELAR</button></div><div id="app"></div><footer>Origem: Castrillon Autopeças • Toque em “IR PARA A OFICINA”.</footer><script>const O="R. 01, lotes 11/12, Setor Bom Jesus, Porangatu - GO, 76550-000, Brasil";
 const data=[
 ["Bom Jesus / Primavera / Planalto","Mecânica Auto Car","Rua 09 Qd.01 Lt.13 - Área 3, R. Primavera, 228 - Setor Bom Jesus, Porangatu - GO","(62) 98141-4659"],
 ["Bom Jesus / Primavera / Planalto","Auto Mecânica Bandeirantes","Av. Belém-Brasília, Qd. 5 Lt. 4 - Bom Jesus, Porangatu - GO",""],
@@ -33,13 +32,173 @@ const data=[
 ["BR-153 / Linha pesada","H.A. NISHIMURA TRUCKAR REFRIGERAÇÃO","BR-153 km 73, Porangatu - GO","(62) 99448-0630"],
 ["BR-153 / Linha pesada","Truckbus Service","BR-153 km 73, Porangatu - GO",""]
 ];
-let region="Todas";let custom=[];try{const saved=JSON.parse(localStorage.getItem("rotasCastrillonLocais")||"[]");custom=Array.isArray(saved)?saved:[]}catch(e){custom=[];localStorage.removeItem("rotasCastrillonLocais")}let editingIndex=-1;const allData=function(){return data.concat(custom)};
-const esc=function(s){return s.replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;")};
-const maps=function(dest,name){return "https://www.google.com/maps/dir/?api=1&destination="+encodeURIComponent(name+", "+dest)+"&travelmode=driving&dir_action=navigate"};
-function render(){const q=document.getElementById("q").value.toLowerCase().trim();const rows=allData().filter(function(x){return (region==="Todas"||x[0]===region)&&(!q||x.join(" ").toLowerCase().includes(q))});let html="";rows.forEach(function(x,i){const ci=custom.indexOf(x);html+='<section class="route '+(ci>-1?"custom":"")+'"><h2>'+(i+1)+'. '+esc(x[1])+'</h2><div class="badge">📍 '+esc(x[0])+'</div><div class="address">'+esc(x[2])+'</div><a class="map" href="'+maps(x[2],x[1])+'" target="_blank" rel="noopener">🗺️ IR PARA A OFICINA</a>'+(x[3]?'<a class="phone" href="tel:'+x[3].replace(/\D/g,'')+'">📞 '+esc(x[3])+'</a>':"")+(ci>-1?'<div class="manage"><button class="edit" onclick="editLocal('+ci+')">✏️ EDITAR</button><button class="del" onclick="deleteLocal('+ci+')">🗑️ EXCLUIR</button></div>':"")+'</section>'});document.getElementById("app").innerHTML=html+'<div class="count">'+rows.length+' oficina(s) encontrada(s)</div>'}
-function editLocal(i){const x=custom[i];editingIndex=i;document.getElementById("newName").value=x[1];document.getElementById("newAddress").value=x[2];document.getElementById("newPhone").value=x[3]||"";const sel=document.getElementById("newRegion");let op=Array.from(sel.options).find(o=>o.value===x[0]);if(!op){op=document.createElement("option");op.value=x[0];op.textContent=x[0];sel.insertBefore(op,sel.lastElementChild)}sel.value=x[0];document.getElementById("form").classList.add("show");document.getElementById("saveBtn").textContent="💾 ATUALIZAR LOCAL";window.scrollTo({top:document.getElementById("form").offsetTop-100,behavior:"smooth"})}
-function deleteLocal(i){if(confirm("Excluir "+custom[i][1]+"?")){custom.splice(i,1);localStorage.setItem("rotasCastrillonLocais",JSON.stringify(custom));regions();render()}}
-function setupForm(){const sel=document.getElementById("newRegion");const rs=Array.from(new Set(data.map(function(x){return x[0]})));sel.innerHTML=rs.map(function(r){return '<option value="'+esc(r)+'">'+esc(r)+'</option>'}).join('')+'<option value="__nova">➕ Nova região</option>';document.getElementById("addBtn").onclick=function(){editingIndex=-1;document.getElementById("newName").value="";document.getElementById("newAddress").value="";document.getElementById("newPhone").value="";document.getElementById("saveBtn").textContent="💾 SALVAR LOCAL";document.getElementById("form").classList.add("show")};document.getElementById("cancelBtn").onclick=function(){editingIndex=-1;document.getElementById("form").classList.remove("show");document.getElementById("saveBtn").textContent="💾 SALVAR LOCAL"};sel.onchange=function(){if(sel.value==="__nova"){const n=prompt("Digite o nome da nova região:");if(n&&n.trim()){const name=n.trim();const o=document.createElement("option");o.value=name;o.textContent=name;sel.insertBefore(o,sel.lastElementChild);sel.value=name}else sel.selectedIndex=0}};document.getElementById("saveBtn").onclick=function(){const n=document.getElementById("newName").value.trim(),a=document.getElementById("newAddress").value.trim(),p=document.getElementById("newPhone").value.trim(),r=sel.value;if(!n||!a||!r||r==="__nova"){alert("Preencha o nome, a região e o endereço.");return}const item=[r,n,a,p];if(editingIndex>=0&&editingIndex<custom.length){custom[editingIndex]=item}else{custom.push(item)}localStorage.setItem("rotasCastrillonLocais",JSON.stringify(custom));editingIndex=-1;document.getElementById("newName").value="";document.getElementById("newAddress").value="";document.getElementById("newPhone").value="";document.getElementById("form").classList.remove("show");document.getElementById("saveBtn").textContent="💾 SALVAR LOCAL";regions();render();alert("Local salvo com sucesso!")}}
-function regions(){const rs=["Todas"].concat(Array.from(new Set(allData().map(function(x){return x[0]}))));let html="";rs.forEach(function(r){html+='<button class="'+(r===region?"active":"")+'" data-r="'+esc(r)+'">'+esc(r)+'</button>'});document.getElementById("regions").innerHTML=html;document.querySelectorAll("#regions button").forEach(function(b){b.onclick=function(){region=b.getAttribute("data-r");regions();render()}})}
-document.getElementById("q").addEventListener("input",render);setupForm();regions();render();if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js");
+
+var region="Todas";
+var custom=[];
+var editingIndex=-1;
+
+try{
+  var saved=localStorage.getItem("rotasCastrillonLocais");
+  if(saved){
+    var parsed=JSON.parse(saved);
+    if(parsed && Object.prototype.toString.call(parsed)==="[object Array]") custom=parsed;
+  }
+}catch(e){ custom=[]; }
+
+function esc(v){
+  return String(v).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+function allData(){ return data.concat(custom); }
+
+function maps(dest,name){
+  return "https://www.google.com/maps/dir/?api=1&destination="+encodeURIComponent(name+", "+dest)+"&travelmode=driving&dir_action=navigate";
+}
+
+function render(){
+  var q=(document.getElementById("q").value||"").toLowerCase().trim();
+  var rows=allData();
+  var html="";
+  var found=0;
+  for(var i=0;i<rows.length;i++){
+    var x=rows[i];
+    if(region!=="Todas" && x[0]!==region) continue;
+    if(q && x.join(" ").toLowerCase().indexOf(q)===-1) continue;
+    var ci=custom.indexOf(x);
+    found++;
+    html+='<section class="route '+(ci>=0?'custom':'')+'">';
+    html+='<h2>'+found+'. '+esc(x[1])+'</h2>';
+    html+='<div class="badge">📍 '+esc(x[0])+'</div>';
+    html+='<div class="address">'+esc(x[2])+'</div>';
+    html+='<a class="map" href="'+maps(x[2],x[1])+'" target="_blank" rel="noopener">🗺️ IR PARA A OFICINA</a>';
+    if(x[3]) html+='<a class="phone" href="tel:'+String(x[3]).replace(/\D/g,"")+'">📞 '+esc(x[3])+'</a>';
+    if(ci>=0) html+='<div class="manage"><button class="edit" onclick="editLocal('+ci+')">✏️ EDITAR</button><button class="del" onclick="deleteLocal('+ci+')">🗑️ EXCLUIR</button></div>';
+    html+='</section>';
+  }
+  document.getElementById("app").innerHTML=html+'<div class="count">'+found+' oficina(s) encontrada(s)</div>';
+}
+
+function regions(){
+  var rs=["Todas"];
+  var rows=allData();
+  for(var i=0;i<rows.length;i++){
+    if(rs.indexOf(rows[i][0])===-1) rs.push(rows[i][0]);
+  }
+  var html="";
+  for(var j=0;j<rs.length;j++){
+    html+='<button class="'+(rs[j]===region?'active':'')+'" data-r="'+esc(rs[j])+'">'+esc(rs[j])+'</button>';
+  }
+  document.getElementById("regions").innerHTML=html;
+  var bs=document.getElementById("regions").getElementsByTagName("button");
+  for(var k=0;k<bs.length;k++){
+    bs[k].onclick=function(){
+      region=this.getAttribute("data-r");
+      regions();
+      render();
+    };
+  }
+}
+
+function saveCustom(){
+  try{localStorage.setItem("rotasCastrillonLocais",JSON.stringify(custom));}catch(e){}
+}
+
+function resetForm(){
+  editingIndex=-1;
+  document.getElementById("newName").value="";
+  document.getElementById("newAddress").value="";
+  document.getElementById("newPhone").value="";
+  document.getElementById("form").classList.remove("show");
+  document.getElementById("saveBtn").textContent="💾 SALVAR LOCAL";
+}
+
+function editLocal(i){
+  var x=custom[i];
+  if(!x) return;
+  editingIndex=i;
+  document.getElementById("newName").value=x[1]||"";
+  document.getElementById("newAddress").value=x[2]||"";
+  document.getElementById("newPhone").value=x[3]||"";
+  var sel=document.getElementById("newRegion");
+  var found=false;
+  for(var i2=0;i2<sel.options.length;i2++){
+    if(sel.options[i2].value===x[0]){sel.selectedIndex=i2;found=true;break;}
+  }
+  if(!found){
+    var op=document.createElement("option");
+    op.value=x[0];op.textContent=x[0];
+    sel.insertBefore(op,sel.lastElementChild);
+    sel.value=x[0];
+  }
+  document.getElementById("form").classList.add("show");
+  document.getElementById("saveBtn").textContent="💾 ATUALIZAR LOCAL";
+  window.scrollTo(0,document.getElementById("form").offsetTop-80);
+}
+
+function deleteLocal(i){
+  if(!custom[i]) return;
+  if(confirm("Excluir "+custom[i][1]+"?")){
+    custom.splice(i,1);
+    saveCustom();
+    regions();
+    render();
+  }
+}
+
+function setupForm(){
+  var sel=document.getElementById("newRegion");
+  var rows=data;
+  var html="";
+  var rs=[];
+  for(var i=0;i<rows.length;i++) if(rs.indexOf(rows[i][0])===-1) rs.push(rows[i][0]);
+  for(var j=0;j<rs.length;j++) html+='<option value="'+esc(rs[j])+'">'+esc(rs[j])+'</option>';
+  html+='<option value="__nova">➕ Nova região</option>';
+  sel.innerHTML=html;
+
+  document.getElementById("addBtn").onclick=function(){
+    resetForm();
+    document.getElementById("form").classList.add("show");
+  };
+
+  document.getElementById("cancelBtn").onclick=function(){ resetForm(); };
+
+  sel.onchange=function(){
+    if(sel.value==="__nova"){
+      var n=prompt("Digite o nome da nova região:");
+      if(n && n.trim()){
+        var name=n.trim();
+        var op=document.createElement("option");
+        op.value=name;op.textContent=name;
+        sel.insertBefore(op,sel.lastElementChild);
+        sel.value=name;
+      }else{
+        sel.selectedIndex=0;
+      }
+    }
+  };
+
+  document.getElementById("saveBtn").onclick=function(){
+    var n=document.getElementById("newName").value.trim();
+    var a=document.getElementById("newAddress").value.trim();
+    var p=document.getElementById("newPhone").value.trim();
+    var r=sel.value;
+    if(!n || !a || !r || r==="__nova"){
+      alert("Preencha o nome, a região e o endereço.");
+      return;
+    }
+    var item=[r,n,a,p];
+    if(editingIndex>=0 && editingIndex<custom.length) custom[editingIndex]=item;
+    else custom.push(item);
+    saveCustom();
+    resetForm();
+    regions();
+    render();
+    alert("Local salvo com sucesso!");
+  };
+}
+
+document.getElementById("q").addEventListener("input",render);
+regions();
+render();
+try{setupForm();}catch(e){console.log("Form error",e);}
+if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js");
 </script></body></html>
